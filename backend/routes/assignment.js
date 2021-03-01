@@ -1,5 +1,5 @@
 const router = require('express').Router();
-let Assignment = require('../models/Assignment.model');
+let Assignment = require('../models/assignment.model');
 
 router.route('/').get((req, res) => {
   // find is a mongodb method to get all
