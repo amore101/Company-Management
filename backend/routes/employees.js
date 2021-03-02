@@ -10,11 +10,14 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-    // Username, Name, Password, EmployeeId, Email, Phone, Salary
-  const Employeename = req.body.Employeename;
+  const username = req.body.username;
+  const name = req.body.name;
   const password = req.body.password;
+  const email = req.body.email;
+  const phone = req.body.phone;
+  const salary = req.body.salary;
 
-  const newEmployee = new Employee({Employeename, password});
+  const newEmployee = new Employee({username, name, password, email, phone, salary});
 
   newEmployee.save()
     .then(() => res.json('Employee added!'))
