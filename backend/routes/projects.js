@@ -11,7 +11,7 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
     // id profit deadline
-  const profit = req.body.profit;
+  const profit = Number(req.body.profit);
   const deadline = req.body.deadline;
 
   const newProject = new Project({profit, deadline});
@@ -37,7 +37,7 @@ router.route('/:id').get((req, res) => {
     Project.findById(req.params.id)
       .then(Project => {
         Project.deadline = req.body.deadline;
-        Project.profit = req.body.profit;
+        Project.profit = Number(req.body.profit);
   
         Project.save()
           .then(() => res.json('Project updated!'))

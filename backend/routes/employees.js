@@ -15,7 +15,7 @@ router.route('/add').post((req, res) => {
   const password = req.body.password;
   const email = req.body.email;
   const phone = req.body.phone;
-  const salary = req.body.salary;
+  const salary = Number(req.body.salary);
 
   const newEmployee = new Employee({username, name, password, email, phone, salary});
 
@@ -39,11 +39,12 @@ router.route('/:id').get((req, res) => {
   router.route('/update/:id').post((req, res) => {
     Employee.findById(req.params.id)
       .then(Employee => {
+        Employee.username = req.body.username;
         Employee.name = req.body.name;
+        Employee.password = req.body.password;
         Employee.email = req.body.email;
-        Employee.address = req.body.address;
         Employee.phone = req.body.phone;
-        Employee.role = req.body.role;
+        Employee.salary = Number(req.body.salary);
   
         Employee.save()
           .then(() => res.json('Employee updated!'))
