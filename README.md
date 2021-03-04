@@ -73,3 +73,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 // let exists = Object.values(obj).includes("test1");
 // delete object[key]
 // axios.all to call multiple axios in one function
+// bind in constructors
+
+
+// conflict between company and project

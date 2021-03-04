@@ -10,13 +10,19 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-  const projectId = req.body.projectId;
+  const projectName = req.body.projectName;
   const companyName = req.body.companyName;
 
-  const newOrder = new Order({projectId, companyName});
+  const newOrder = new Order({projectName, companyName});
 
   newOrder.save()
     .then(() => res.json('Order added!'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/:project_name').delete((req, res) => {
+  Order.findOneAndDelete({projectName: req.params.project_name})
+    .then(() => res.json('Order deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 

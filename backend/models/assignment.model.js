@@ -8,7 +8,7 @@ const assignmentSchema = new Schema({
     required: true,
     trim: true// ignore whitespaces
   },
-  projectId: { type: String, required: true}
+  projectName: { type: String, required: true}
 }, {
   timestamps: true,
 });

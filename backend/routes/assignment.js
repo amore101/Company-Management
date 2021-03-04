@@ -11,9 +11,9 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
   const username = req.body.username;
-  const projectId = req.body.projectId;
+  const projectName = req.body.projectName;
 
-  const newAssignemnt = new Assignment({username, projectId});
+  const newAssignemnt = new Assignment({username, projectName});
 
   newAssignemnt.save()
     .then(() => res.json('Assignment added!'))

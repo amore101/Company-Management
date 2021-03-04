@@ -24,12 +24,16 @@ const companiesRouter = require('./routes/companies');
 const projectsRouter = require('./routes/projects');
 const employeesRouter = require('./routes/employees');
 const employmentRouter = require('./routes/employment');
+const ordersRouter = require('./routes/order');
+const assignmentRouter = require('./routes/assignment');
 
 app.use('/users', usersRouter);
 app.use('/companies', companiesRouter);
 app.use('/projects', projectsRouter);
 app.use('/employees', employeesRouter);
 app.use('/employment', employmentRouter);
+app.use('/orders', ordersRouter);
+app.use('/assignment', assignmentRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

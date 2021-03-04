@@ -11,10 +11,11 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
     // id profit deadline
+  const name = req.body.name;
   const profit = Number(req.body.profit);
   const deadline = req.body.deadline;
 
-  const newProject = new Project({profit, deadline});
+  const newProject = new Project({name, profit, deadline});
 
   newProject.save()
     .then(() => res.json('Project added!'))
@@ -25,25 +26,26 @@ router.route('/:id').get((req, res) => {
     Project.findById(req.params.id)
       .then(Project => res.json(Project))
       .catch(err => res.status(400).json('Error: ' + err));
-  });
+});
   
-  router.route('/:id').delete((req, res) => {
-    Project.findByIdAndDelete(req.params.id)
-      .then(() => res.json('Project deleted.'))
-      .catch(err => res.status(400).json('Error: ' + err));
-  });
+router.route('/:id').delete((req, res) => {
+  Project.findByIdAndDelete(req.params.id)
+    .then(() => res.json('Project deleted.'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
   
-  router.route('/update/:id').post((req, res) => {
-    Project.findById(req.params.id)
-      .then(Project => {
-        Project.deadline = req.body.deadline;
-        Project.profit = Number(req.body.profit);
-  
-        Project.save()
-          .then(() => res.json('Project updated!'))
-          .catch(err => res.status(400).json('Error: ' + err));
-      })
-      .catch(err => res.status(400).json('Error: ' + err));
-  });
+router.route('/update/:id').post((req, res) => {
+  Project.findById(req.params.id)
+    .then(Project => {
+      Project.name = req.body.name;
+      Project.deadline = req.body.deadline;
+      Project.profit = Number(req.body.profit);
+
+      Project.save()
+        .then(() => res.json('Project updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 
 module.exports = router;

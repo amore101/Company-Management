@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
-  projectId: { type: String, required: true, unique: true},
+  projectName: { type: String, required: true, unique: true},
   companyName: { type: String, required: true }
 }, {
   timestamps: true,
