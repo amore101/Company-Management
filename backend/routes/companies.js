@@ -8,11 +8,11 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-  const name = res.body.name;
-  const email = res.body.email;
-  const address = res.body.address;
-  const phone = res.body.phone;
-  const role = res.body.role;
+  const name = req.body.name;
+  const email = req.body.email;
+  const address = req.body.address;
+  const phone = req.body.phone;
+  const role = req.body.role;
 
   const newCompany = new Company({
     name,

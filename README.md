@@ -69,3 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 // all the ids, type
+// use bind with onClick
+// let exists = Object.values(obj).includes("test1");
+// delete object[key]
+// axios.all to call multiple axios in one function
