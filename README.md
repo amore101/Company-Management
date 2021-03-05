@@ -77,3 +77,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 // conflict between company and project
+
+mongod always on
+connect mongo with atlas

@@ -20,4 +20,10 @@ router.route('/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/:project_name').delete((req, res) => {
+  Assignment.findOneAndDelete({projectName: req.params.project_name})
+    .then(() => res.json('Assignment deleted.'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 module.exports = router;
