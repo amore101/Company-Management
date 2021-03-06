@@ -6,10 +6,9 @@ const assignmentSchema = new Schema({
   username: {
     type: String,
     required: true,
-    unique: true,
     trim: true// ignore whitespaces
   },
-  projectName: { type: String, required: true}
+  projectName: { type: String, required: true, unique: true}
 }, {
   timestamps: true,
 });
