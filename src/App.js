@@ -13,6 +13,7 @@ import Navbar from "./components/Navbar";
 import EmployeeList from "./components/EmployeeList";
 import history from "./history";
 import ProjectCreation from './components/ProjectCreation';
+import ProjectUpdate from "./components/ProjectUpdate";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/addemployee/:id" component={EmployeeCreation} />
         <Route path="/projects" component={ProjectList} />
         <Route path="/addproject/:id" component={ProjectCreation} />
+        <Route path="/updateproject/:id" component={ProjectUpdate} />
       </div>
     </Router>
   );

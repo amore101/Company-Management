@@ -26,4 +26,17 @@ router.route('/:project_name').delete((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/update/:id').post((req, res) => {
+  Assignment.findById(req.params.id)
+    .then(as => {
+      as.username = req.body.username;
+      as.projectName = req.body.projectName;
+
+      as.save()
+        .then(() => res.json('Assignment updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 module.exports = router;

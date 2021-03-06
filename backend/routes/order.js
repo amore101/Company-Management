@@ -26,4 +26,17 @@ router.route('/:project_name').delete((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/update/:id').post((req, res) => {
+  Order.findById(req.params.id)
+    .then(or => {
+      or.projectName = req.body.projectName;
+      or.companyName = req.body.projectName;
+
+      or.save()
+        .then(() => res.json('Order updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 module.exports = router;
